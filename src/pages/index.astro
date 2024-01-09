@@ -1,16 +1,33 @@
 ---
+import Badge from "../components/Badge.astro";
 import Section from "../components/Section.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
-  <Section class="py-40 pb-32">
-    <span></span>
-  </Section>
-  <Section id="experience">
-    <span></span>
-  </Section>
-  <Section id="proyects">
-    <span></span>
-  </Section>
+<Layout
+  title="Protafolio Jonathan"
+  description="Portafolio personal de jonathan hecho con astro, html, css, tailwind y con mucho amor"
+>
+  <main class="px-4">
+    <Section class="py-40 pb-32">
+      <h1
+        class="text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
+      >
+        Hey, soy Jonathan <a
+          href="https://linkedin.com/in/midudev"
+          target="_blank"
+          rel="noopener"
+          class="flex justify-center items-center"
+        >
+          <Badge>Disponible para trabajar</Badge>
+        </a>
+      </h1>
+    </Section>
+    <Section id="experience">
+      <span></span>
+    </Section>
+    <Section id="proyects">
+      <span></span>
+    </Section>
+  </main>
 </Layout>
