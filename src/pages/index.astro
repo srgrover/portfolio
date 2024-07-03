@@ -1,20 +1,29 @@
 ---
 import Badge from "../components/Badge.astro";
 import Section from "../components/Section.astro";
+import SocialBadge from "../components/SocialBadge.astro";
+import LinkedinIcon from "../components/icons/Linkedin.astro";
+import GithubIcon from "../components/icons/Github.astro";
+import MailIcon from "../components/icons/Mail.astro";
 import Layout from "../layouts/Layout.astro";
+import BriefCase from "../components/icons/BriefCase.astro";
+import { EXPERIENCE, type Experience } from "../data/ExperienceData.astro";
+import ExperienceComponent from "../components/Experience.astro";
 ---
 
 <Layout
   title="Protafolio Jonathan"
   description="Portafolio personal de jonathan hecho con astro, html, css, tailwind y con mucho amor"
 >
-  <main class="px-4">
-    <Section class="py-40 pb-32">
+  <main class="px-4 flex flex-col items-center justify-center gap-y-10 md:gap-y-16 lg:gap-y-20">
+    <div class="h-150"></div>
+    <Section id="profile">
+      <img src="https://gravatar.com/userimage/210087464/99388c5f16609b9133a0b7f186de7e1a.jpeg?size=256" class="rounded-full h-20 w-20 object-cover object-center" width="50" height="50" alt="profile image">
       <h1
         class="text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
       >
         Hey, soy Jonathan <a
-          href="https://linkedin.com/in/midudev"
+          href="https://www.linkedin.com/in/jonathan-moya-moreno/"
           target="_blank"
           rel="noopener"
           class="flex justify-center items-center"
@@ -22,10 +31,35 @@ import Layout from "../layouts/Layout.astro";
           <Badge>Disponible para trabajar</Badge>
         </a>
       </h1>
+      <p>+5 años de experiencia. Desarrollador web Full Stack en .NET 6 y Angular. De Madrid, España X Teletrabajo</p>
+
+      <div class="py-7">
+        <SocialBadge href="https://www.linkedin.com/in/jonathan-moya-moreno/" target="_blank" rel="noopener">
+          <LinkedinIcon /> LinkedIn
+        </SocialBadge>
+        <SocialBadge href="https://github.com/srgrover/" target="_blank" rel="noopener">
+          <GithubIcon /> GitHub
+        </SocialBadge>
+        <SocialBadge href="mailto:dev.jonathan.moya@gmail.com" target="_blank" rel="noopener">
+          <MailIcon /> dev.jonathan.moya@gmail.com
+        </SocialBadge>
+      </div>
     </Section>
+
     <Section id="experience">
-      <span></span>
+      <h2 class="flex align-middle items-center gap-2 mb-6 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <BriefCase />
+        Experiencia Laboral
+      </h2>
+      <ol class="relative border-s border-gray-200 dark:border-gray-700">
+        {EXPERIENCE.map((job: Experience) => (
+          <li class="mb-10 ms-4">
+            <ExperienceComponent title={job.title} description={job.description} date={job.date} link={job.link} actuall={job.actuall} />
+          </li>
+        ))}     
+      </ol>
     </Section>
+
     <Section id="proyects">
       <span></span>
     </Section>
