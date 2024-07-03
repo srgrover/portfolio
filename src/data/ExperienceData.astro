@@ -1,0 +1,31 @@
+---
+export interface Experience {
+    title: string;
+    description: string;
+    date: Date;
+    link?: string;
+    actuall: boolean;
+}
+
+export const EXPERIENCE: Experience[] = [{
+    title: "Getronics",
+    description: "Programador Full Stack con Angular y .NET 6. Desarrollo de nuevas funcionalidades y soporte de errores. BBDD SQL server, Docker y Azure DevOps. Metodologia Agile Scrum.",
+    date: new Date(2022, 12, 10),
+    actuall: true
+}, {
+    title: "Signaturit",
+    description: "",
+    date: new Date(2022, 9, 7),
+    actuall: false
+}, {
+    title: "Neoris",
+    description: "",
+    date: new Date(2020, 8, 12),
+    actuall: false
+}, {
+    title: "Ideal Education Group",
+    description: "",
+    date: new Date(2019, 5, 7),
+    actuall: false
+}];
+---
