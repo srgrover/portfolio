@@ -1,0 +1,12 @@
+---
+import type { Tag } from "../data/ProyectsData.astro";
+
+const tag: Tag = Astro.props.tag;
+---
+
+<span
+    class="bg-gray-100 gap-1 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-full me-2 dark:bg-gray-700 dark:text-gray-400 border border-gray-500"
+>
+    <tag.icon />
+    {tag.name}
+</span>
