@@ -6,24 +6,30 @@ import LinkedinIcon from "../components/icons/Linkedin.astro";
 import GithubIcon from "../components/icons/Github.astro";
 import MailIcon from "../components/icons/Mail.astro";
 import Layout from "../layouts/Layout.astro";
-import BriefCase from "../components/icons/BriefCase.astro";
 import { EXPERIENCE, type Experience } from "../data/ExperienceData.astro";
 import ExperienceComponent from "../components/Experience.astro";
-import { PROYECTS, type Proyect } from "../data/ProyectsData.astro";
-import ProyectsComponent from "../components/Proyects.astro";
-import CodeIcon from "../components/icons/Code.astro";
+import { PROYECTS, type Proyect } from "../data/ProjectsData.astro";
+import ProyectsComponent from "../components/Projects.astro";
 import LetterX from "../components/icons/LetterX.astro";
-import { Image } from '@astrojs/image/components';
+import ArrowRight from "../components/icons/ArrowRight.astro";
 ---
 
 <Layout
   title="Protafolio Jonathan"
   description="Portafolio personal de jonathan hecho con astro, html, css, tailwind y con mucho amor"
 >
-  <main class="px-4 flex flex-col items-center justify-center gap-y-10 md:gap-y-16 lg:gap-y-20">
+  <main
+    class="px-4 flex flex-col items-center justify-center gap-14 md:gap-16 lg:gap-20"
+  >
     <div class="py-10"></div>
     <Section id="profile">
-      <img src="https://gravatar.com/userimage/210087464/99388c5f16609b9133a0b7f186de7e1a.jpeg?size=256" class="rounded-full h-20 w-20 object-cover object-center" width="50" height="50" alt="profile image">
+      <img
+        src="https://gravatar.com/userimage/210087464/99388c5f16609b9133a0b7f186de7e1a.jpeg?size=256"
+        class="rounded-full h-20 w-20 object-cover object-center"
+        width="50"
+        height="50"
+        alt="profile image"
+      />
       <h1
         class="text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
       >
@@ -36,53 +42,93 @@ import { Image } from '@astrojs/image/components';
           <Badge>Disponible para trabajar</Badge>
         </a>
       </h1>
-      <p class="text-balance">Experto en desarrollo web con más de +5 años de experiencia. 
-        Titulado en Formación Profesional de Grado superior en Desarrollo de Aplicaciones Web (DAW). 
-        Desarrollador web Full Stack en .NET 6 y Angular.
-        <span class="flex">De Madrid, España <LetterX class="text-purple-500 dark:text-purple-500 text-2xl" /> Teletrabajo</span>
-        </p>
-      
+      <p class="text-balance">
+        Experto en desarrollo web con más de +5 años de experiencia. Titulado en
+        Formación Profesional de Grado superior en Desarrollo de Aplicaciones
+        Web (DAW). Desarrollador web Full Stack en .NET 6 y Angular.
+        <span class="flex"
+          >De Madrid, España <LetterX
+            class="text-purple-500 dark:text-purple-500 text-2xl"
+          /> Teletrabajo</span
+        >
+      </p>
 
       <div class="py-7">
-        <SocialBadge href="https://www.linkedin.com/in/jonathan-moya-moreno/" target="_blank" rel="noopener">
+        <SocialBadge
+          href="https://www.linkedin.com/in/jonathan-moya-moreno/"
+          target="_blank"
+          rel="noopener"
+        >
           <LinkedinIcon /> LinkedIn
         </SocialBadge>
-        <SocialBadge href="https://github.com/srgrover/" target="_blank" rel="noopener">
-          <GithubIcon /> GitHub
+        <SocialBadge
+          href="https://github.com/srgrover/"
+          target="_blank"
+          rel="noopener"
+        >
+          <GithubIcon height="24" width="24" /> GitHub
         </SocialBadge>
-        <SocialBadge href="mailto:dev.jonathan.moya@gmail.com" target="_blank" rel="noopener">
+        <SocialBadge
+          href="mailto:dev.jonathan.moya@gmail.com"
+          target="_blank"
+          rel="noopener"
+        >
           <MailIcon /> dev.jonathan.moya@gmail.com
         </SocialBadge>
       </div>
     </Section>
 
     <Section id="experience">
-      <h2 class="flex align-middle items-center gap-2 mb-6 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-        <BriefCase />
-        Experiencia Laboral
-      </h2>
-      <ol class="relative border-s border-gray-200 dark:border-gray-700">
-        {EXPERIENCE.map((job: Experience) => (
-          <li class="mb-10 ms-4">
-            <ExperienceComponent title={job.title} description={job.description} date={job.date} link={job.link} actuall={job.actuall} />
-          </li>
-        ))}     
+      <div class="flex w-full items-center justify-between">
+        <h2 class="text-xl font-medium">Experiencia</h2>
+      </div>
+      <ol
+        class="relative space-y-6 border-s-2 border-neutral-300 dark:border-neutral-800"
+      >
+        {
+          EXPERIENCE.map((job: Experience) => (
+            <li class="mb-10 ms-4">
+              <ExperienceComponent
+                title={job.title}
+                description={job.description}
+                initDate={job.initDate}
+                organization={job.organization}
+                endDate={job.endDate}
+                link={job.link}
+                actuall={job.actuall}
+              />
+            </li>
+          ))
+        }
       </ol>
     </Section>
 
-    <Section id="proyects">
-      <h2 class="flex align-middle items-center gap-2 mb-6 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-        <CodeIcon />
-        Proyectos
-      </h2>
+    <Section id="projects">
+      <div class="flex w-full items-center justify-between">
+        <h2 class="text-xl font-medium">Proyectos</h2>
+        <a
+          href="/projects"
+          class="group flex items-center space-x-2 text-sm font-medium text-neutral-500 dark:text-neutral-400 duration-100 hover:text-black dark:hover:text-white"
+          ><span>Ver mas</span>
+          <ArrowRight width="14" height="14" /></a
+        >
+      </div>
 
-      <ol class="relative">
-        {PROYECTS.map((proyect: Proyect) => (
-          <li class="mb-10">
-            <ProyectsComponent title={proyect.title} description={proyect.description} tags={proyect.tags} />
-          </li>
-        ))}
-      </ol>
+      <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
+        {
+          PROYECTS.map((proyect: Proyect) => (
+            <ProyectsComponent
+              title={proyect.title}
+              description={proyect.description}
+              mainCode={proyect.mainCode}
+              mainCodeUrl={proyect.mainCodeUrl}
+              url={proyect.url}
+              repo={proyect.repo}
+              tags={proyect.tags}
+            />
+          ))
+        }
+      </div>
     </Section>
   </main>
 </Layout>
