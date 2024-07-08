@@ -21,60 +21,65 @@ import ArrowRight from "../components/icons/ArrowRight.astro";
   <main
     class="px-4 flex flex-col items-center justify-center gap-14 md:gap-16 lg:gap-20"
   >
-    <div class="py-10"></div>
-    <Section id="profile">
-      <img
-        src="https://gravatar.com/userimage/210087464/99388c5f16609b9133a0b7f186de7e1a.jpeg?size=256"
-        class="rounded-full h-20 w-20 object-cover object-center"
-        width="50"
-        height="50"
-        alt="profile image"
-      />
-      <h1
-        class="text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
-      >
-        Hey, soy Jonathan <a
-          href="https://www.linkedin.com/in/jonathan-moya-moreno/"
-          target="_blank"
-          rel="noopener"
-          class="flex justify-center items-center"
+    <Section id="profile" className="flex-col gap-5">
+      <div class="flex flex-col gap-5">
+        <img
+          src="https://gravatar.com/userimage/210087464/99388c5f16609b9133a0b7f186de7e1a.jpeg?size=256"
+          class="rounded-full h-20 w-20 object-cover object-center"
+          width="50"
+          height="50"
+          alt="profile image"
+        />
+  
+        <h1
+          class="text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 m-0 p-0"
         >
-          <Badge>Disponible para trabajar</Badge>
-        </a>
-      </h1>
-      <p class="text-balance">
-        Experto en desarrollo web con más de +5 años de experiencia. Titulado en
-        Formación Profesional de Grado superior en Desarrollo de Aplicaciones
-        Web (DAW). Desarrollador web Full Stack en .NET 6 y Angular.
-        <span class="flex"
-          >De Madrid, España <LetterX
-            class="text-purple-500 dark:text-purple-500 text-2xl"
-          /> Teletrabajo</span
-        >
-      </p>
-
-      <div class="py-7">
-        <SocialBadge
-          href="https://www.linkedin.com/in/jonathan-moya-moreno/"
-          target="_blank"
-          rel="noopener"
-        >
-          <LinkedinIcon /> LinkedIn
-        </SocialBadge>
-        <SocialBadge
-          href="https://github.com/srgrover/"
-          target="_blank"
-          rel="noopener"
-        >
-          <GithubIcon height="24" width="24" /> GitHub
-        </SocialBadge>
-        <SocialBadge
-          href="mailto:dev.jonathan.moya@gmail.com"
-          target="_blank"
-          rel="noopener"
-        >
-          <MailIcon /> dev.jonathan.moya@gmail.com
-        </SocialBadge>
+          Hey, soy Jonathan <a
+            href="https://www.linkedin.com/in/jonathan-moya-moreno/"
+            target="_blank"
+            rel="noopener"
+            class="flex justify-center items-center"
+          >
+            <Badge>Disponible para trabajar</Badge>
+          </a>
+        </h1>
+  
+        <div class="flex flex-col gap-4">
+          <p class="text-balance">
+            Experto en desarrollo web con más de +5 años de experiencia. Titulado en
+            Formación Profesional de Grado superior en Desarrollo de Aplicaciones
+            Web (DAW). Desarrollador web Full Stack en .NET 6 y Angular.
+            <span class="flex"
+              >De Madrid, España <LetterX
+                class="text-purple-500 dark:text-purple-500 text-2xl"
+              /> Teletrabajo</span
+            >
+          </p>
+    
+          <div class="flex flex-column gap-3">
+            <SocialBadge
+              href="https://www.linkedin.com/in/jonathan-moya-moreno/"
+              target="_blank"
+              rel="noopener"
+            >
+              <LinkedinIcon width="16" height="16" /> LinkedIn
+            </SocialBadge>
+            <SocialBadge
+              href="https://github.com/srgrover/"
+              target="_blank"
+              rel="noopener"
+            >
+              <GithubIcon height="16" width="16" /> GitHub
+            </SocialBadge>
+            <SocialBadge
+              href="mailto:dev.jonathan.moya@gmail.com"
+              target="_blank"
+              rel="noopener"
+            >
+              <MailIcon width="16" height="16" /> dev.jonathan.moya@gmail.com
+            </SocialBadge>
+          </div>
+        </div>
       </div>
     </Section>
 
