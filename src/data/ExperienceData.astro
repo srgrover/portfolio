@@ -1,6 +1,7 @@
 ---
 export interface Experience {
     title: string;
+    organization: string;
     description: string;
     date: Date;
     link?: string;
@@ -8,23 +9,33 @@ export interface Experience {
 }
 
 export const EXPERIENCE: Experience[] = [{
-    title: "Getronics",
-    description: "Programador Full Stack con Angular y .NET 6. Desarrollo de nuevas funcionalidades y soporte de errores. BBDD SQL server, Docker y Azure DevOps. Metodologia Agile Scrum.",
+    title: "Senior FullStack Developer",
+    organization: "Getronics",
+    description: "Programador Full Stack con Angular y .NET 6. Migración de app. Desarrollo de nuevas funcionalidades y soporte de errores. API Rest en Back y consumición con Front. Formación y supervisión de nuevos compañeros. BBDD SQL server, Docker y Azure DevOps. Metodologia Agile Scrum.",
     date: new Date(2022, 12, 10),
     actuall: true
 }, {
-    title: "Signaturit",
-    description: "",
+    title: "Colaborador Experto en Desarrollo",
+    organization: "OpenWebinars",
+    description: "Colaboro a tiempo parcial con la plataforma de contenido educativo online OpenWebinars. Creo propuestas de aprendizaje y grabo los videos con el contenido formativo específico.",
+    date: new Date(2022, 9, 7),
+    actuall: true
+},{
+    title: "Senior FullStack Developer",
+    organization: "Signaturit",
+    description: "Desarrollador Full Stack con Angular y .NET 6. BBDD SQL server. Despliegue de app mediante FTP. Clean architecture. Desarrollo de nuevas funcionalidades y soporte de errores. Organización de trabajo en Jira y documentación en Confluence Metodologia Agile Scrum",
     date: new Date(2022, 9, 7),
     actuall: false
 }, {
-    title: "Neoris",
-    description: "",
+    title: "Software Developer FullStack",
+    organization: "Neoris",
+    description: "Nueva app relacionada con almacenes, cambios, piezas y técnicos entre otras cosas. Desarrollo en Angular +9 y .NET 3.2. Nuevos desarrollos y soporte de errores en ServiceNow. Modo API en back y consumo en front. BBDD SQL server. Metodologia Agile Scrum. Organización de trabajo en Azure DevOps. Formación de nuevos compañeros.",
     date: new Date(2020, 8, 12),
     actuall: false
 }, {
-    title: "Ideal Education Group",
-    description: "",
+    title: "Junior Software Developer FullStack",
+    organization: "Ideal Education Group",
+    description: "Migracion de App relacionada con el sector educativo. Desarrollada con Angular +7 y .NET CORE 3. Desarrollo de nuevas apps en Ionic y Flutter. BBDD SQL Server. Metodologia Agile Scrum. Colaboración con otra empresa de desarrollo durante el proceso.",
     date: new Date(2019, 5, 7),
     actuall: false
 }];
