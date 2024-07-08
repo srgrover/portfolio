@@ -1,6 +1,6 @@
 ---
 import Angular from "../components/icons/Angular.astro";
-import AstroIcon from "../components/icons/Astro.astro";
+import AstroIcon from "../components/icons/AstroIcon.astro";
 import Bootstrap from "../components/icons/Bootstrap.astro";
 import Html from "../components/icons/Html.astro";
 
@@ -111,7 +111,8 @@ export const TAGS = {
 export interface Proyect {
     title: string;
     description: string;
-    image?: string;
+    mainCode?: string;
+    mainCodeUrl?: string;
     url?: string
     repo?: string;
     tags?: Tag[];
@@ -121,7 +122,10 @@ export const PROYECTS: Proyect[] = [
     {
         title: "URL Shorter",
         description: "Proyecto de prueba para aprender Astro con un curso en Udemy.",
-        tags: [TAGS.ASTRO, TAGS.HTML, TAGS.BOOTSTRAP]
+        mainCode: 'Astro',
+        mainCodeUrl: 'https://astro.build/',
+        url: 'https://astro.build/',
+        tags: [TAGS.HTML, TAGS.ASTRO, TAGS.BOOTSTRAP]
     }
 ];
 ---
