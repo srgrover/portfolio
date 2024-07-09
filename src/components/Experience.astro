@@ -1,5 +1,5 @@
 ---
-const { title, description, organization, initDate, endDate, link, actuall } = Astro.props;
+const { title, description, organization, initDate, endDate, link, actuall, tarjet = "_blank" } = Astro.props;
 
 function formatDate(date: Date): string {
     const options: Intl.DateTimeFormatOptions = {
@@ -19,15 +19,14 @@ function formatDate(date: Date): string {
     >
     {(initDate !== undefined) ? `${formatDate(initDate)} - ` : ''} 
     {(actuall) ? "Actualmente" : (endDate !== undefined) ? formatDate(endDate) : ''}
-    </time
->
+</time>
 <div class="mt-2 flex flex-col space-y-0.5">
     <h3 class="text-lg font-semibold tracking-tight text-gray-900 dark:text-white">
         {title}
     </h3>
     <a
         href={link}
-        target="_blank"
+        target={tarjet}
         rel="noopener"
         class="group flex w-max items-center text-pretty text-sm text-neutral-600 transition-colors duration-150 hover:text-black dark:border-neutral-800 dark:text-neutral-400 dark:hover:text-white decoration-neutral-500 decoration-dotted underline-offset-[5px] hover:underline"
         ><span>{organization}</span>
