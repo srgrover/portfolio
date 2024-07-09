@@ -6,12 +6,16 @@ import LinkedinIcon from "../components/icons/Linkedin.astro";
 import GithubIcon from "../components/icons/Github.astro";
 import MailIcon from "../components/icons/Mail.astro";
 import Layout from "../layouts/Layout.astro";
-import { EXPERIENCE, type Experience } from "../data/ExperienceData.astro";
+import { EXPERIENCE, type iExperience } from "../data/ExperienceData.astro";
 import ExperienceComponent from "../components/Experience.astro";
 import { PROYECTS, type Proyect } from "../data/ProjectsData.astro";
 import ProyectsComponent from "../components/Projects.astro";
 import LetterX from "../components/icons/LetterX.astro";
 import ArrowRight from "../components/icons/ArrowRight.astro";
+
+const AVAILABLEFORWORK = false;
+
+const EXPERIENCEDATA = EXPERIENCE.slice(0, 2);
 ---
 
 <Layout
@@ -40,7 +44,7 @@ import ArrowRight from "../components/icons/ArrowRight.astro";
             rel="noopener"
             class="flex justify-center items-center"
           >
-            <Badge>Disponible para trabajar</Badge>
+            <Badge className={!AVAILABLEFORWORK ? "bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300 border border-blue-400" : "bg-green-100 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300 border border-green-400"}>{AVAILABLEFORWORK ? "Disponible para trabajar" : "Trabajando actualmente"}</Badge>
           </a>
         </h1>
   
@@ -91,7 +95,7 @@ import ArrowRight from "../components/icons/ArrowRight.astro";
         class="relative space-y-6 border-s-2 border-neutral-300 dark:border-neutral-800"
       >
         {
-          EXPERIENCE.map((job: Experience) => (
+          EXPERIENCEDATA.map((job: iExperience) => (
             <li class="mb-10 ms-4">
               <ExperienceComponent
                 title={job.title}
@@ -105,6 +109,18 @@ import ArrowRight from "../components/icons/ArrowRight.astro";
             </li>
           ))
         }
+
+        {
+          (EXPERIENCEDATA.length < EXPERIENCE.length) && 
+          (
+          <li class="mb-10 ms-4">
+            <ExperienceComponent
+                organization="Ver más",
+                link="/ExperiencePage"
+                tarjet="_self"
+              />
+          </li>)
+        }                
       </ol>
     </Section>
 
