@@ -11,24 +11,24 @@ function formatDate(date: Date): string {
 ---
 
 <div
-    class="absolute -start-[6.5px] mt-2 h-3 w-3 rounded-full border border-neutral-400 bg-neutral-200 dark:border-neutral-600 dark:bg-neutral-800"
+    class="absolute -start-[6.5px] mt-2 h-3 w-3 rounded-full border border-neutral-400 bg-neutral-200"
 >
 </div>
 <time
-    class="mb-2 capitalize font-mono text-xs font-normal leading-none text-neutral-600 dark:text-neutral-400"
+    class="mb-2 capitalize font-mono text-xs font-normal leading-none text-neutral-600"
     >
     {(initDate !== undefined) ? `${formatDate(initDate)} - ` : ''} 
     {(actuall) ? "Actualmente" : (endDate !== undefined) ? formatDate(endDate) : ''}
 </time>
 <div class="mt-2 flex flex-col space-y-0.5">
-    <h3 class="text-lg font-semibold tracking-tight text-gray-900 dark:text-white">
+    <h3 class="text-lg font-semibold tracking-tight text-gray-900">
         {title}
     </h3>
     <a
         href={link}
         target={tarjet}
         rel="noopener"
-        class="group flex w-max items-center text-pretty text-sm text-neutral-600 transition-colors duration-150 hover:text-black dark:border-neutral-800 dark:text-neutral-400 dark:hover:text-white decoration-neutral-500 decoration-dotted underline-offset-[5px] hover:underline"
+        class="group flex w-max items-center text-pretty text-sm text-neutral-600 transition-colors duration-150 hover:text-black decoration-neutral-500 decoration-dotted underline-offset-[5px] hover:underline"
         ><span>{organization}</span>
         <svg
             width="12"
@@ -44,4 +44,4 @@ function formatDate(date: Date): string {
             ><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg
         ></a>
 </div>
-<p class="mt-3 text-pretty text-sm dark:text-neutral-400">{description}</p>
+<p class="mt-3 text-pretty text-sm">{description}</p>
