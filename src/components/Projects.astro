@@ -12,11 +12,15 @@ const { title, description, url, tags, mainCode, mainCodeUrl, repo } = Astro.pro
     role="contentinfo"
     class="relative flex flex-col rounded-md border border-neutral-300 px-3 py-4 shadow-sm dark:border-neutral-800"
 >
-    <div
+    <input
         class="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
         style="opacity: 0; background: radial-gradient(600px circle at 352.5px 126px, rgba(97, 97, 97, 0.1), transparent 60%);"
     >
-    </div>
+    </input>
+    <div class="pointer-events-none absolute -inset-px rounded-md opacity-0 transition duration-300" style="
+      opacity: 0;
+      background: radial-gradient(600px circle at 265.5px 42px, rgba(97, 97, 97, 0.1), transparent 60%);
+    "></div>
     <div class="flex flex-col space-y-3">
         <div class="flex w-full items-center justify-between">
             <div class="flex items-center space-x-[10px]">
