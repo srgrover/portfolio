@@ -1,0 +1,48 @@
+---
+import ArrowLeft from "../components/icons/ArrowLeft.astro";
+import Layout from "../layouts/Layout.astro";
+import ProjectsComponent from "../components/proyects/Projects.astro";
+
+import { getGitHubProjects } from "../utils/github/github";
+import { getInfoByUrl } from "../utils/github/github";
+
+import type { Project } from "../types/Project.type";
+import Proyects from "../components/proyects/Proyects";
+const githubToken = import.meta.env.GITHUB_TOKEN; // Obtén el token de las variables de entorno
+
+let PROYECTS: Project[] = [];
+
+try {
+    const projects = await getGitHubProjects(githubToken, 0, 0);
+
+    const projectsWithTags = await Promise.all(
+        projects.map(async (project) => {
+            const tags = Object.keys(
+                await getInfoByUrl(project.languages_url, githubToken)
+            );
+            return { ...project, tags };
+        })
+    );
+    PROYECTS = projectsWithTags;
+    console.log("EEEE",PROYECTS)
+} catch (error) {
+    console.error(error);
+}
+---
+
+<Layout
+    title="Protafolio Jonathan"
+    description="Portafolio personal de jonathan hecho con astro, html, css, tailwind y con mucho amor"
+>
+    <a
+        href="/"
+        class="group flex w-max items-center gap-2 text-pretty text-sm text-neutral-600 transition-colors duration-150 hover:text-black decoration-neutral-500 decoration-dotted underline-offset-[5px] hover:underline"
+    >
+        <ArrowLeft width="14" height="14" />
+        Volver atrás</a
+    >
+
+    <div class="grid gap-3 grid-cols-1">
+        <Proyects client:load projects={PROYECTS} />
+    </div>
+</Layout>
