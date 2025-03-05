@@ -1,11 +1,12 @@
 ---
 import Heart from "./icons/Heart.astro";
+const year = new Date().getFullYear();
 ---
 
 <footer class="px-4 flex flex-col max-w-[768px] flex-wrap gap-4 w-full  justify-center">
   <span class="text-sm flex gap-1 text-gray-500 sm:text-center"
       >Hecho con mucho
       <Heart fill="#E63946" />
-      con las manitas. Jonathan Moya 2025
+      con las manitas. Jonathan Moya {year}
     </span>
 </footer>
