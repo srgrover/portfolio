@@ -8,12 +8,26 @@ import MailIcon from "../components/icons/Mail.astro";
 import Layout from "../layouts/Layout.astro";
 import { EXPERIENCE, type iExperience } from "../data/ExperienceData.astro";
 import ExperienceComponent from "../components/Experience.astro";
-import { PROYECTS, type Proyect } from "../data/ProjectsData.astro";
-import ProyectsComponent from "../components/Projects.astro";
+import ProyectsComponent from "../components/proyects/Projects.astro";
 import LetterX from "../components/icons/LetterX.astro";
 import ArrowRight from "../components/icons/ArrowRight.astro";
+import { getGitHubProjects } from "../utils/github/github";
+import { getInfoByUrl } from "../utils/github/github";
+import type { Project } from "../types/Project.type";  
+const githubToken = import.meta.env.GITHUB_TOKEN; // Obtén el token de las variables de entorno
 
-const AVAILABLEFORWORK = false;
+let PROYECTS: Project[] = [];
+
+try {
+    PROYECTS = await getGitHubProjects(githubToken, 0, 4);
+    PROYECTS.map(async (project: Project) => {
+        project.tags = Object.keys(await getInfoByUrl(project.languages_url, githubToken));
+    });
+} catch (error) {
+    console.error(error);
+}   
+
+const AVAILABLEFORWORK = EXPERIENCE[0].actuall ? false : true;
 
 const EXPERIENCEDATA = EXPERIENCE.slice(0, 3);
 ---
@@ -21,13 +35,7 @@ const EXPERIENCEDATA = EXPERIENCE.slice(0, 3);
 <Layout
   title="Protafolio Jonathan"
   description="Portafolio personal de jonathan hecho con astro, html, css, tailwind y con mucho amor"
->
-  <main
-    class="container max-w-4xl flex-1 px-8"
-  >
-  <div class="grid items-center gap-14 py-4 md:py-4">
-
-  
+> 
     <Section id="profile" className="flex-col gap-5">
       <div class="flex flex-col gap-5">
         <img
@@ -131,7 +139,7 @@ const EXPERIENCEDATA = EXPERIENCE.slice(0, 3);
       <div class="flex w-full items-center justify-between">
         <h2 class="text-xl font-medium">Proyectos</h2>
         <a
-          href="/projects"
+          href="/ProjectsPage"
           class="group flex items-center space-x-2 text-sm font-medium text-neutral-500 hover:text-black"
           ><span>Ver mas</span>
           <ArrowRight width="14" height="14" /></a
@@ -140,22 +148,20 @@ const EXPERIENCEDATA = EXPERIENCE.slice(0, 3);
 
       <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
         {
-          PROYECTS.map((proyect: Proyect) => (
+          PROYECTS.map((proyect: Project) => (
             <ProyectsComponent
-              title={proyect.title}
+              title={proyect.name}
               description={proyect.description}
               mainCode={proyect.mainCode}
               mainCodeUrl={proyect.mainCodeUrl}
-              url={proyect.url}
-              repo={proyect.repo}
+              url={proyect.html_url}
+              repo={proyect.html_url}
               tags={proyect.tags}
             />
           ))
         }
       </div>
     </Section>
-  </div>
-  </main>
 </Layout>
 
 <style>
