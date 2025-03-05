@@ -1,36 +1,44 @@
 ---
 import Experience from "../components/Experience.astro";
 import Section from "../components/Section.astro";
+import ArrowLeft from "../components/icons/ArrowLeft.astro";
 import { EXPERIENCE, type iExperience } from "../data/ExperienceData.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
-  title="Protafolio Jonathan"
-  description="Portafolio personal de jonathan hecho con astro, html, css, tailwind y con mucho amor"
+    title="Protafolio Jonathan"
+    description="Portafolio personal de jonathan hecho con astro, html, css, tailwind y con mucho amor"
 >
+    <a
+        href="/"
+        class="group flex w-max items-center gap-2 text-pretty text-sm text-neutral-600 transition-colors duration-150 hover:text-black decoration-neutral-500 decoration-dotted underline-offset-[5px] hover:underline"
+    >
+        <ArrowLeft width="14" height="14" />
+        Volver atrás</a
+    >
     <Section id="experience">
         <div class="flex w-full items-center justify-between">
-        <h2 class="text-xl font-medium">Experiencia</h2>
+            <h2 class="text-xl font-medium">Experiencia</h2>
         </div>
         <ol
-        class="relative space-y-6 border-s-2 border-neutral-300 dark:border-neutral-800"
+            class="relative space-y-6 border-s-2 border-neutral-300 dark:border-neutral-800"
         >
-        {
-            EXPERIENCE.map((job: iExperience) => (
-            <li class="mb-10 ms-4">
-                <Experience
-                title={job.title}
-                description={job.description}
-                initDate={job.initDate}
-                organization={job.organization}
-                endDate={job.endDate}
-                link={job.link}
-                actuall={job.actuall}
-                />
-            </li>
-            ))
-        }
+            {
+                EXPERIENCE.map((job: iExperience) => (
+                    <li class="mb-10 ms-4">
+                        <Experience
+                            title={job.title}
+                            description={job.description}
+                            initDate={job.initDate}
+                            organization={job.organization}
+                            endDate={job.endDate}
+                            link={job.link}
+                            actuall={job.actuall}
+                        />
+                    </li>
+                ))
+            }
         </ol>
     </Section>
 </Layout>
