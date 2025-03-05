@@ -14,6 +14,8 @@ import ArrowRight from "../components/icons/ArrowRight.astro";
 import { getGitHubProjects } from "../utils/github/github";
 import { getInfoByUrl } from "../utils/github/github";
 import type { Project } from "../types/Project.type";  
+import CheckIcon from "../components/icons/CheckIcon.astro";
+import BriefCase from "../components/icons/BriefCase.astro";
 const githubToken = import.meta.env.GITHUB_TOKEN; // Obtén el token de las variables de entorno
 
 let PROYECTS: Project[] = [];
@@ -55,7 +57,22 @@ const EXPERIENCEDATA = EXPERIENCE.slice(0, 3);
             rel="noopener"
             class="flex mt-[.3em] items-center"
           >
-            <Badge className={!AVAILABLEFORWORK ? "bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded-full border border-blue-400" : "bg-green-100 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full border border-green-400"}>{AVAILABLEFORWORK ? "Disponible para trabajar" : "Trabajando actualmente"}</Badge>
+            <Badge className={!AVAILABLEFORWORK ? "bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded-full border border-blue-400" : "bg-green-100 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full border border-green-400"}>
+              {
+                AVAILABLEFORWORK ? (
+                  <div class="flex gap-1 items-center">
+                    <CheckIcon width="16" height="16" />
+                    <span>Disponible para trabajar</span>
+                  </div>
+                ) : 
+                (
+                  <div class="flex gap-1 items-center">
+                    <BriefCase width="16" height="16" />
+                    <span>Trabajando actualmente</span>
+                  </div>
+                )
+              }
+            </Badge>
           </a>
         </h1>
   
@@ -63,7 +80,8 @@ const EXPERIENCEDATA = EXPERIENCE.slice(0, 3);
           <p class="text-balance">
             Experto en desarrollo web con más de <span class="font-extrabold text-xl text-purple-400">+</span>5 años de experiencia. Titulado en
             Formación Profesional de Grado superior en Desarrollo de Aplicaciones
-            Web (DAW). Desarrollador web Full Stack en .NET 6 y Angular.
+            Web (DAW). Desarrollador web Full Stack en .NET y Angular. También
+            tengo conocimientos en Astro, React y Next.js
             <span class="flex"
               >De Madrid, España <LetterX
                 class="text-purple-500 text-2xl"
