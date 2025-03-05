@@ -1,5 +1,5 @@
 ---
-import type { Tag } from "../data/ProjectsData.astro";
+import type { Tag } from "../types/Project.type";
 
 const tag: Tag = Astro.props.tag;
 ---
@@ -7,5 +7,6 @@ const tag: Tag = Astro.props.tag;
 <span
     class="cursor-default flex gap-1 rounded-md  border border-neutral-300 bg-neutral-200/50 px-2 py-1 font-mono text-xs font-medium text-neutral-600 dark:border-neutral-800 dark:bg-neutral-800/60 dark:text-neutral-300"
     >
-    <tag.icon height="16" width="16" /> {tag.name}
+    <!-- <tag.icon height="16" width="16" /> --> 
+    {tag.name}
 </span>
