@@ -10,7 +10,7 @@ export const ProjectItem = ({ project }: Props) => {
     return (
         <div
             role="contentinfo"
-            className="relative flex flex-col rounded-md border border-neutral-300 px-3 py-4 shadow-sm dark:border-neutral-800"
+            className="relative flex flex-col rounded-md border border-neutral-300 px-3 py-4 shadow-sm"
         >
             <input
                 className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
@@ -92,7 +92,7 @@ export const ProjectItem = ({ project }: Props) => {
                         </svg>
                     </a>
                 </div>
-                <p className="truncate text-sm dark:text-neutral-400" title={description ?? 'No hay descripción'}>
+                <p className="truncate text-sm" title={description ?? 'No hay descripción'}>
                     {description}
                 </p>
                 <div className="items-center space-x-2 overflow-x-auto flex">
@@ -124,7 +124,7 @@ export const ProjectItem = ({ project }: Props) => {
                     <div className="flex items-center space-x-1">
                         {tags && tags.map((tag: string) => (
                             <span key={name + tag}
-                            className="cursor-default flex gap-1 rounded-md  border border-neutral-300 bg-neutral-200/50 px-2 py-1 font-mono text-xs font-medium text-neutral-600 dark:border-neutral-800 dark:bg-neutral-800/60 dark:text-neutral-300"
+                            className="cursor-default flex gap-1 rounded-md  border border-neutral-300 bg-neutral-200/50 px-2 py-1 font-mono text-xs font-medium text-neutral-600"
                             >
                             {tag}
                         </span>
