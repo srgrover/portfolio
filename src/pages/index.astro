@@ -11,11 +11,11 @@ import ExperienceComponent from "../components/Experience.astro";
 import ProyectsComponent from "../components/proyects/Projects.astro";
 import LetterX from "../components/icons/LetterX.astro";
 import ArrowRight from "../components/icons/ArrowRight.astro";
-import { getGitHubProjects } from "../utils/github/github";
-import { getInfoByUrl } from "../utils/github/github";
+import { getGitHubProjects, getInfoByUrl } from "../utils/github/github";
 import type { Project } from "../types/Project.type";  
 import CheckIcon from "../components/icons/CheckIcon.astro";
 import BriefCase from "../components/icons/BriefCase.astro";
+
 const githubToken = import.meta.env.GITHUB_TOKEN; // Obtén el token de las variables de entorno
 
 let PROYECTS: Project[] = [];
@@ -156,29 +156,48 @@ const EXPERIENCEDATA = EXPERIENCE.slice(0, 3);
     <Section id="projects" class:list={'w-full'}>
       <div class="flex w-full items-center justify-between">
         <h2 class="text-xl font-medium">Proyectos</h2>
-        <a
-          href="/ProjectsPage"
-          class="group flex items-center space-x-2 text-sm font-medium text-neutral-500 hover:text-black"
-          ><span>Ver mas</span>
-          <ArrowRight width="14" height="14" /></a
-        >
-      </div>
-
-      <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
         {
-          PROYECTS.map((proyect: Project) => (
-            <ProyectsComponent
-              title={proyect.name}
-              description={proyect.description}
-              mainCode={proyect.mainCode}
-              mainCodeUrl={proyect.mainCodeUrl}
-              url={proyect.html_url}
-              repo={proyect.html_url}
-              tags={proyect.tags}
-            />
-          ))
+          PROYECTS.length &&
+          (
+            <a
+              href="/Projects"
+              class="group flex items-center space-x-2 text-sm font-medium text-neutral-500 hover:text-black"
+              ><span>Ver mas</span>
+              <ArrowRight width="14" height="14" />
+            </a>
+          )
         }
       </div>
+
+      {
+        PROYECTS.length
+            ? (
+              <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
+              {
+                PROYECTS.map((proyect: Project) => (
+                  <ProyectsComponent
+                    title={ proyect.name }
+                    description={ proyect.description }
+                    mainCode={ proyect.mainCode }
+                    mainCodeUrl={ proyect.mainCodeUrl }
+                    url={ proyect.html_url }
+                    repo={ proyect.html_url }
+                    tags={ proyect.tags }
+                  />
+                ))
+              }
+              </div>
+              )
+            : (
+              <div class="grid grid-cols-1 md:grid-cols-1">
+                <div
+                  role="contentinfo"
+                  class="relative flex flex-col rounded-md border border-neutral-300 px-3 py-4 shadow-sm">
+                    <pre class="text-sm text-gray-500 px-3">No hay proyectos disponibles para mostrar. Puedes visitar mis repositorios en <a href="https://github.com/srgrover?tab=repositories" class="underline">GitHub</a>.</pre>
+                </div>  
+              </div>
+              )
+        }
     </Section>
 </Layout>
 
