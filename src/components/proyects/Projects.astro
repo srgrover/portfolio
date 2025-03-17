@@ -9,7 +9,7 @@ const { title, description, url, tags, mainCode, mainCodeUrl, repo } = Astro.pro
 
 <div
     role="contentinfo"
-    class="relative flex flex-col rounded-md border border-neutral-300 px-3 py-4 shadow-sm dark:border-neutral-800"
+    class="relative flex flex-col rounded-md border border-neutral-300 px-3 py-4 shadow-sm"
 >
     <input
         class="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
@@ -47,7 +47,7 @@ const { title, description, url, tags, mainCode, mainCodeUrl, repo } = Astro.pro
             <Github width="16" height="16" /> 
             </a>
         </div>
-        <p class="truncate text-sm dark:text-neutral-400" title={description}>
+        <p class="truncate text-sm" title={description}>
             {description}
         </p>
         <div class="items-center space-x-2 overflow-x-auto flex">
