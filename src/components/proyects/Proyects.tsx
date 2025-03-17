@@ -37,7 +37,7 @@ export default function Projects({ projects }: Props) {
                                             width={12}
                                             height={12}
                                             strokeWidth="3"
-                                            className="lucide-icon lucide lucide-arrow-up-right opacity-50 group-hover:opacity-100 group-hover:translate-x-[1.5px] duration-200"
+                                            className="lucide-icon lucide lucide-arrow-up-right"
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 24 24"
                                             fill="none"
